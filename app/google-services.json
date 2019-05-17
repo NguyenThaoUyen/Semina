@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085180469885",
+    "firebase_url": "https://semina-318c4.firebaseio.com",
+    "project_id": "semina-318c4",
+    "storage_bucket": "semina-318c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085180469885:android:4ad06025ae6a87f9",
+        "android_client_info": {
+          "package_name": "com.example.semina"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085180469885-53ilpj9eep8qcfb75h1sn5fjro75lprr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.semina",
+            "certificate_hash": "2e61366e64b1e6195541484bf0437eb9dd60d528"
+          }
+        },
+        {
+          "client_id": "1085180469885-9sbts6f7br5r9jugc712sq3c6uqfe5r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLLglwBb3dcgsqQm9vcToI5J9xzlxUr98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085180469885-9sbts6f7br5r9jugc712sq3c6uqfe5r2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
