@@ -21,8 +21,7 @@
             android:gravity="center"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="#E91E63"
-            />
+            android:background="#E91E63" />
         <Button
             android:id="@+id/btn_food"
             android:text="FOOD"
@@ -30,8 +29,7 @@
             android:layout_toRightOf="@+id/btn_hotel"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:background="#FFEB3B"
-            />
+            android:background="#FFEB3B"/>
         <Button
             android:id="@+id/btn_place"
             android:text="PLACE"
@@ -45,7 +43,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sự kiện nổi bật  "
+        android:text="Sự kiện nổi bật"
         android:textSize="20dp"
         android:textColor="#070707"
         android:gravity="center"
@@ -58,6 +56,4 @@
         android:padding="20dp">
 
     </android.support.v7.widget.RecyclerView>
-
-
 </LinearLayout>
