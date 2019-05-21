@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity"
+    android:background="@drawable/poster"
+>
+    <TextView
+        android:id="@+id/welcome_profile"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Welcome to travel "
+       android:gravity="center"
+        android:textSize="40dp"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+
+          />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_below="@+id/welcome_profile"
+        android:layout_marginTop="50dp"
+        android:background="#03A9F4"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        />
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_below="@+id/btn_login"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@color/red"
+        android:layout_marginTop="30dp"
+
+   />
+
+
+
+
+</RelativeLayout>

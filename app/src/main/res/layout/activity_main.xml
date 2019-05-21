@@ -19,7 +19,7 @@
             android:id="@+id/btn_hotel"
             android:text="HOTEL"
             android:gravity="center"
-            android:layout_width="140dp"
+            android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:background="#E91E63" />
         <Button
@@ -27,7 +27,7 @@
             android:text="FOOD"
             android:gravity="center"
             android:layout_toRightOf="@+id/btn_hotel"
-            android:layout_width="140dp"
+            android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:background="#FFEB3B"/>
         <Button
@@ -35,27 +35,29 @@
             android:text="PLACE"
             android:gravity="center"
             android:layout_toRightOf="@+id/btn_food"
-            android:layout_width="140dp"
+            android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:background="#00BCD4"
             />
+        <Button
+            android:id="@+id/btn_profile"
+            android:text="Profile"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/btn_place"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:background="#F44336"
+            />
     </RelativeLayout>
     <TextView
+        android:id="@+id/review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Review  mới nhất "
         android:textSize="20dp"
         android:textColor="#070707"
         android:gravity="center"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="20dp"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_event"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:background="#4AC393"
-        android:padding="20dp">
 
-    </android.support.v7.widget.RecyclerView>
 </LinearLayout>
