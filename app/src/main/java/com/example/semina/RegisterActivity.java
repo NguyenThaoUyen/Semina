@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 hashMap.put("id", userid);
                                 hashMap.put("username", username);
                                 hashMap.put("ImageURL", "default");
-                                hashMap.put("status","Hi there, I'm using Aloha Chat App!!!");
+
 
                                 databaseReference.child(userid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override

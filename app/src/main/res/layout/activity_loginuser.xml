@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".LoginuserActivity"
     android:id="@+id/login"
  >
@@ -33,13 +33,14 @@
         />
 
     <EditText
-        android:id="@+id/ed_user"
+        android:id="@+id/ed_gmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hint_user"
+        android:text="@string/hint_gmail"
         android:layout_toRightOf="@+id/user"
         android:layout_below="@id/welcome_profile"
         android:textColor="@color/black"
+        android:layout_marginTop="20dp"
         />
     <EditText
         android:id="@+id/ed_password"

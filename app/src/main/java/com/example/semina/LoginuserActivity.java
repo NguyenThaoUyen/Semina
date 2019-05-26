@@ -19,8 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginuserActivity extends AppCompatActivity {
 
 
-    EditText ed_user, ed_password;
-    Button btn_login,btn_register;
+    EditText ed_gmail, ed_password;
+    Button btn_login;
     FirebaseAuth auth;
 
     @Override
@@ -35,20 +35,26 @@ public class LoginuserActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //firebase
         auth = FirebaseAuth.getInstance();
+
+
         // find id
-     ed_password= findViewById(R.id.ed_password);
-        ed_user = findViewById(R.id.ed_user);
+        ed_password= findViewById(R.id.ed_password);
+        ed_gmail = findViewById(R.id.ed_gmail);
         btn_login = findViewById(R.id.btn_login);
+
+
+
         // set on click button
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String txt_user = ed_user.getText().toString();
+                String txt_gmail = ed_gmail.getText().toString();
                 String txt_password = ed_password.getText().toString();
-                if ((TextUtils.isEmpty(txt_user)) || (TextUtils.isEmpty(txt_password))) {
+
+                if ((TextUtils.isEmpty(txt_gmail)) || (TextUtils.isEmpty(txt_password))) {
                     Toast.makeText(LoginuserActivity.this, "All fileds are required", Toast.LENGTH_SHORT).show();
                 } else {
-                    auth.signInWithEmailAndPassword(txt_user, txt_password)
+                    auth.signInWithEmailAndPassword(txt_gmail, txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {

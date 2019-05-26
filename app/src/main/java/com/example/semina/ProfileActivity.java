@@ -41,15 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        //button register
-        btn_register = findViewById(R.id.btn_register);
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent reg_intent = new Intent (ProfileActivity.this, RegisterActivity.class);
-                startActivity(reg_intent);
-            }
-        });
+
         // button login
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +49,15 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent log_intent = new Intent (ProfileActivity.this, LoginuserActivity.class);
                 startActivity(log_intent);
+            }
+        });
+        //button register
+        btn_register = findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent reg_intent = new Intent (ProfileActivity.this, RegisterActivity.class);
+                startActivity(reg_intent);
             }
         });
 
