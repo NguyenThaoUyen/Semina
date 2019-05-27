@@ -8,6 +8,10 @@ public class Data {
     private String Des;
     private String Address;
 
+
+
+
+
     public Data() {
     }
 
@@ -17,7 +21,16 @@ public class Data {
         this.phone = phone;
         this.Des = Des;
         this.Address = Address;
+
     }
+
+    public Data(String image, String name, String des, String add) {
+        this.image=image;
+        this.name = name;
+        this.Des =des;
+        this.Address =add;
+    }
+
 
     public String getImage() {
         return image;

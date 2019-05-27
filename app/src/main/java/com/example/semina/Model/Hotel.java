@@ -1,28 +1,31 @@
 package com.example.semina.Model;
 
+
+
 public class Hotel {
 
-
     private String image;
-    private String  title;
-    private String  content;
+    private String  name;
+    private String Des;
+    private String Address;
+
+
+
+
 
     public Hotel() {
     }
 
-    public Hotel(String title, String image, String content) {
-        this.title = title;
+    public Hotel(String image, String name, String Des, String Address) {
         this.image = image;
-        this.content = content;
+        this.name = name;
+        this.Des = Des;
+        this.Address = Address;
+
     }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+
 
     public String getImage() {
         return image;
@@ -32,18 +35,32 @@ public class Hotel {
         this.image = image;
     }
 
-    public String getContent() {
-        return content;
+    public String getName() {
+        return name;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    @Override
-    public String toString() {
-        return super.toString();
+
+    public String getDes() {
+        return Des;
+    }
+
+    public void setDes(String Des) {
+        this.Des = Des;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 }
+
+
 

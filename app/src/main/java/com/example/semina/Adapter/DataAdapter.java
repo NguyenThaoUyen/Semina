@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.semina.ListhotelActivity;
 import com.example.semina.Model.Data;
 import com.example.semina.Model.Hotel;
 import com.example.semina.R;
@@ -28,6 +29,7 @@ public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolde
     public DataAdapter(Context context, List<Data> dataList) {
         this.dataList = dataList;
         this.context = context;
+
     }
     public void setItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
@@ -61,8 +63,8 @@ public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolde
 
 
 
-    }
 
+    }
 
     @Override
     public int getItemCount() {
