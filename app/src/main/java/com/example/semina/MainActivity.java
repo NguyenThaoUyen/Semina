@@ -3,6 +3,7 @@ package com.example.semina;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -37,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Register");
+        getSupportActionBar().setTitle("Travel App");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         //find id
         btn_hotel = findViewById(R.id.btn_hotel);
         btn_food = findViewById(R.id.btn_food);
@@ -54,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent hotel_intent = new Intent (MainActivity.this, ListhotelActivity.class);
                 startActivity(hotel_intent);
+
+
+
+
             }
         });
         // button food

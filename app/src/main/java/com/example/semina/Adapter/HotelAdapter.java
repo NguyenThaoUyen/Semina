@@ -1,30 +1,33 @@
 package com.example.semina.Adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.semina.Model.Data;
+import com.example.semina.ListhotelActivity;
 import com.example.semina.Model.Hotel;
 import com.example.semina.R;
 
 import java.util.List;
 
-public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolder>{
-    private List<Data> dataList;
-
+public class HotelAdapter extends  RecyclerView.Adapter<HotelAdapter.HotelViewHolder>{
+    private List<Hotel> hotelList;
+    private Activity activity;
     private ItemClickListener itemClickListener;
 
 
     /**Contructor*/
-    public DataAdapter(Activity activity, List<Data> dataList) {
-
-        this.dataList = dataList;
+    public HotelAdapter(Activity activity,List<Hotel> hotelList) {
+        this.activity = activity;
+        this.hotelList = hotelList;
     }
     public void setItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
@@ -33,29 +36,29 @@ public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolde
     @NonNull
     @Override
     /** Get layout */
-    public DataAdapter.DataViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+    public HotelAdapter.HotelViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_cardview,viewGroup,false);
-        return new DataAdapter.DataViewHolder(view);
+        return new HotelViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final DataAdapter.DataViewHolder dataViewHolder, int position) {
+    public void onBindViewHolder(@NonNull final HotelAdapter.HotelViewHolder hotelViewHolder, int position) {
         /** Set Value*/
-        final Data data = dataList.get(position);
+        final Hotel hotel = hotelList.get(position);
 
 
 
-        dataViewHolder.title.setText(data.getTitle());
-        dataViewHolder.content.setText(data.getContent());
+        hotelViewHolder.title.setText(hotel.getTitle());
+        hotelViewHolder.content.setText(hotel.getContent());
         /**Sự kiện click vào item*/
 
 
-        dataViewHolder.itemView
+        hotelViewHolder.itemView
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        itemClickListener.onItemClick(dataViewHolder.getLayoutPosition());
+                        itemClickListener.onItemClick(hotelViewHolder.getLayoutPosition());
                     }
                 });
 
@@ -65,19 +68,22 @@ public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolde
     }
 
 
+
+
+
     @Override
     public int getItemCount() {
-        return dataList.size();
+      return hotelList.size();
     }
 
     /** Create ViewHolder*/
 
-    public class DataViewHolder  extends  RecyclerView.ViewHolder {
+    public class HotelViewHolder  extends  RecyclerView.ViewHolder {
         private ImageView image;
         private TextView title;
         private TextView content;
 
-        public DataViewHolder(View itemView) {
+        public HotelViewHolder(View itemView) {
             super(itemView);
             image= (ImageView) itemView.findViewById(R.id.image);
             title = (TextView) itemView.findViewById(R.id.title);

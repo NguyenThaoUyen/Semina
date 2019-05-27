@@ -15,6 +15,7 @@
     <string name="rate">Rate start </string>
     <string name="hint_no_login"> chưa đăng nhập </string>
     <string name="post">post </string>
+    <string name="title_activity_detailhotel">DetailhotelActivity</string>
 
 
 </resources>
