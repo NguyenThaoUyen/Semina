@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.example.semina.Adapter.DataAdapter;
 import com.example.semina.Model.Data;
-import com.example.semina.Model.Hotel;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,9 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class ListFoodActivity extends AppCompatActivity {
-
-
-
 
     private ArrayList<Data> Foods= new ArrayList<>();
          DataAdapter dataAdapter;
@@ -46,7 +43,7 @@ public class ListFoodActivity extends AppCompatActivity {
         //recyclerview
         rv_food =findViewById(R.id.rv_food);
         rv_food.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rv_food.setLayoutManager(linearLayoutManager);
         dataAdapter =new DataAdapter(this,Foods);
         rv_food.setAdapter(dataAdapter);
@@ -54,7 +51,9 @@ public class ListFoodActivity extends AppCompatActivity {
         //read data
         firebaseDatabase =FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Food");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener()
+
+        {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String image, des, add, name;
@@ -65,12 +64,12 @@ public class ListFoodActivity extends AppCompatActivity {
                     des =data.child("Des").getValue().toString();
                     image=data.child("image").getValue().toString();
                     name =data.child("name").getValue().toString();
+
                     Data foods =new Data(image, name,des, add);
+                    Foods.add(foods);
                     dataAdapter.notifyDataSetChanged();
 
                 }
-
-
             }
 
             @Override

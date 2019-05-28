@@ -24,12 +24,19 @@ public class Data {
 
     }
 
-    public Data(String image, String name, String des, String add) {
-        this.image=image;
+    public Data(String image, String name,  String Des, String Address) {
+        this.image = image;
         this.name = name;
-        this.Des =des;
-        this.Address =add;
+        this.Des = Des;
+        this.Address = Address;
+
     }
+
+
+
+
+
+
 
 
     public String getImage() {

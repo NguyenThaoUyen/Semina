@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.semina.ListhotelActivity;
 import com.example.semina.Model.Data;
-import com.example.semina.Model.Hotel;
+
 import com.example.semina.R;
 
 import java.util.List;
