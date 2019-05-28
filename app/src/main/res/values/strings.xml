@@ -16,8 +16,10 @@
     <string name="hint_no_login"> chưa đăng nhập </string>
     <string name="post">post </string>
     <string name="title_activity_detailhotel">DetailhotelActivity</string>
-    <string name="todo">TODO</string>
     <string name="title">Title</string>
+    <string name="introdution_to_the_hotel">Introdution to the hotel</string>
+    <string name="resort_a">Resort A</string>
+    <string name="todo">TODO</string>
 
 
 </resources>

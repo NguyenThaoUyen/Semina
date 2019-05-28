@@ -32,13 +32,6 @@ public class Data {
 
     }
 
-
-
-
-
-
-
-
     public String getImage() {
         return image;
     }

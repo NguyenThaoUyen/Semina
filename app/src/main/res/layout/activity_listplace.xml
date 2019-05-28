@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".ListplaceActivity"
     android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_place"
         android:layout_width="match_parent"
