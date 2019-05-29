@@ -2,15 +2,12 @@ package com.example.semina.Model;
 
 public class Data {
 
+    private String date;
     private String image;
     private String  name;
     private String  phone;
     private String Des;
     private String Address;
-
-
-
-
 
     public Data() {
     }
@@ -31,6 +28,10 @@ public class Data {
         this.Address = Address;
 
     }
+
+
+
+
 
     public String getImage() {
         return image;
@@ -70,6 +71,14 @@ public class Data {
 
     public void setAddress(String Address) {
         this.Address = Address;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
 

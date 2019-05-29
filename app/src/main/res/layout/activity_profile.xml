@@ -20,9 +20,9 @@
         android:id="@+id/welcome_profile"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Information account"
+        android:text="@string/information_account"
        android:gravity="center"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:layout_marginTop="30dp"
         android:textColor="@color/red"
         android:textStyle="bold"
@@ -36,21 +36,21 @@
         android:text="@string/loginaccount"
         android:layout_below="@id/welcome_profile"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:layout_below="@+id/welcome_profile"
-        android:layout_toRightOf="@id/text_login"
-        android:background="#03A9F4"
-        android:layout_marginLeft="150dp"
+        android:layout_toEndOf="@id/text_login"
+        android:background="@color/blue"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
         />
 
@@ -61,22 +61,22 @@
         android:text="@string/registeraccount"
         android:layout_below="@id/text_login"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/black"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
 
         />
     <Button
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:layout_below="@+id/btn_login"
-        android:layout_toRightOf="@id/text_register"
+        android:layout_toEndOf="@id/text_register"
         android:background="@color/red"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="123dp"
+        android:layout_marginStart="70dp"
 
 
    />
@@ -86,34 +86,35 @@
       android:layout_height="wrap_content"
       android:text="@string/hint_gmail"
       android:textColor="@color/black"
-      android:textSize="20dp"
+      android:textSize="20sp"
       android:textStyle="bold"
       android:layout_below="@id/text_register"
       android:layout_marginTop="30dp"
-      android:layout_marginLeft="20dp"
+      android:layout_marginStart="20dp"
       />
     <EditText
         android:id="@+id/show_mail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_register"
-        android:layout_toRightOf="@+id/text_gmail"
+        android:layout_toEndOf="@+id/text_gmail"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="20dp"
+        android:layout_marginStart="15dp"
+        android:textSize="20sp"
 
-        />
+        android:inputType=""
+        android:autofillHints="" />
     <TextView
         android:id="@+id/text_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/review"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/text_gmail"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         />
     <EditText
         android:id="@+id/content"
@@ -121,10 +122,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/text_review"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:textSize="20dp"
+        android:layout_marginStart="15dp"
+        android:textSize="20sp"
 
-        />
+        android:autofillHints=""
+        android:inputType="" />
     <Button
         android:id="@+id/btn_post"
         android:layout_width="wrap_content"
@@ -132,8 +134,8 @@
         android:text="@string/post"
         android:background="@color/blue"
         android:layout_below="@id/text_review"
-        android:layout_toRightOf="@+id/content"
-        android:layout_marginStart="30dp"/>
+        android:layout_toEndOf="@+id/content"
+       />
 
 
 

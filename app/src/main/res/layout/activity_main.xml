@@ -14,50 +14,74 @@
     <RelativeLayout
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/button">
         <Button
             android:id="@+id/btn_hotel"
-            android:text="HOTEL"
+            android:text="@string/hotel"
             android:gravity="center"
-            android:layout_width="105dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#E91E63" />
+            android:background="@color/button"
+            android:padding="10dp"/>
         <Button
             android:id="@+id/btn_food"
-            android:text="FOOD"
+            android:text="@string/food"
             android:gravity="center"
-            android:layout_toRightOf="@+id/btn_hotel"
-            android:layout_width="105dp"
+            android:layout_toEndOf="@+id/btn_hotel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFEB3B"/>
+            android:background="@color/button"
+            android:padding="10dp"/>
         <Button
             android:id="@+id/btn_place"
-            android:text="PLACE"
+            android:text="@string/place"
             android:gravity="center"
-            android:layout_toRightOf="@+id/btn_food"
-            android:layout_width="105dp"
+            android:layout_toEndOf="@+id/btn_food"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00BCD4"
+            android:background="@color/button"
+            android:padding="10dp"
             />
         <Button
             android:id="@+id/btn_profile"
-            android:text="Profile"
+            android:text="@string/profile"
             android:gravity="center"
-            android:layout_toRightOf="@+id/btn_place"
-            android:layout_width="140dp"
+            android:layout_toEndOf="@+id/btn_place"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#F44336"
+            android:background="@color/button"
+            android:padding="10dp"
             />
+        <Button
+            android:id="@+id/btn_event"
+            android:text="event"
+            android:layout_below="@id/btn_hotel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
+    <TextView
+        android:id="@+id/festival"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/festival"
+        android:textSize="20sp"
+        android:textColor="#070707"
+        android:gravity="center"
+      />
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/rv_hotel"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+     </android.support.v7.widget.RecyclerView>
     <TextView
         android:id="@+id/review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Review  mới nhất "
-        android:textSize="20dp"
+        android:text="@string/review_m_i_nh_t"
+        android:textSize="20sp"
         android:textColor="#070707"
         android:gravity="center"
-        android:layout_marginTop="20dp"/>
-
+        />
 
 </LinearLayout>

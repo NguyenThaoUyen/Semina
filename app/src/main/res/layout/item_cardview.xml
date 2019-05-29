@@ -25,6 +25,7 @@
             android:textSize="20sp"
             android:text="@string/title"
             android:layout_marginStart="5dp"
+            android:textStyle="bold"
             />
         <TextView
             android:id="@+id/address"

@@ -8,7 +8,7 @@
     <string name="hint_user">User </string>
     <string name="hint_password">Password </string>
     <string name="hint_gmail">Gmail </string>
-    <string name="login">Your Account </string>
+
     <string name="loginaccount">Login Account </string>
     <string name="registeraccount"> Register Account</string>
     <string name="review">Review</string>
@@ -20,6 +20,15 @@
     <string name="introdution_to_the_hotel">Introdution to the hotel</string>
     <string name="resort_a">Resort A</string>
     <string name="todo">TODO</string>
+    <string name="hotel">HOTEL</string>
+    <string name="food">FOOD</string>
+    <string name="place">PLACE</string>
+    <string name="profile">Profile</string>
+    <string name="festival">lễ hội mới nhất</string>
+    <string name="review_m_i_nh_t">Review mới nhất</string>
+    <string name="information_account">Information account</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
 
 
 </resources>

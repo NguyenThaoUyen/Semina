@@ -46,6 +46,7 @@ public class ListplaceActivity extends AppCompatActivity {
         rv_place =  findViewById(R.id.rv_place);
         rv_place.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager =new LinearLayoutManager(this);
+        rv_place.setLayoutManager(linearLayoutManager);
         dataAdapter = new DataAdapter(this, Places);
         rv_place.setAdapter(dataAdapter);
 
@@ -55,17 +56,16 @@ public class ListplaceActivity extends AppCompatActivity {
        databaseReference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               String  name , address, image, des ;
+               String add, image, des, name;
                        Places.clear();
                for (DataSnapshot data : dataSnapshot.getChildren()){
-                   address =data.child("address").getValue().toString();
                    name = data.child("name").getValue().toString();
-                   image=data.child("image").getValue().toString();
-                   des= data.child("des").getValue().toString();
-                   Data places =new Data(image, address,name,des);
+                   add = data.child("address").getValue().toString();
+                   image = data.child("image").getValue().toString();
+                   des = data.child("des").getValue().toString();
+                   Data places = new Data(image,name,des,add);
                    Places.add(places);
                    dataAdapter.notifyDataSetChanged();
-
            }}
 
            @Override

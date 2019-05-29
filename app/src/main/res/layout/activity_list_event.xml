@@ -5,17 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListplaceActivity"
+    tools:context=".ListEventActivity"
     android:orientation="vertical">
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_place"
+        android:id="@+id/rv_event"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
+
 
 </LinearLayout>
