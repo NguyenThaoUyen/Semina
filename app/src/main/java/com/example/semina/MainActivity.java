@@ -28,12 +28,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_hotel, btn_place, btn_food, btn_profile,btn_event;
+    Button btn_hotel, btn_place, btn_food, btn_profile;
 //hotel
-    private ArrayList<Data> Hotels = new ArrayList<>();
+private ArrayList<Data> Events =new ArrayList<>();
+
     DataAdapter dataAdapter;
-    RecyclerView rv_hotel;
-    //database
+    RecyclerView rv_event;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -55,21 +55,6 @@ public class MainActivity extends AppCompatActivity {
         btn_food = findViewById(R.id.btn_food);
         btn_place = findViewById(R.id.btn_place);
         btn_profile = findViewById(R.id.btn_profile);
-        btn_event =findViewById(R.id.btn_event);
-
-
-
-        //button place
-        btn_event = findViewById(R.id.btn_event);
-        btn_event.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent event_intent = new Intent (MainActivity.this, ListEventActivity.class);
-                startActivity(event_intent);
-            }
-        });
-
-
 
         //button hotel
         btn_hotel = findViewById(R.id.btn_hotel);
@@ -111,30 +96,30 @@ public class MainActivity extends AppCompatActivity {
         //rv
 
         // recyclerview
-        rv_hotel = findViewById(R.id.rv_hotel);
-        rv_hotel.setHasFixedSize(true);
+        rv_event = findViewById(R.id.rv_event);
+        rv_event.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        rv_hotel.setLayoutManager(linearLayoutManager);
-        dataAdapter = new DataAdapter(this,Hotels);
-        rv_hotel.setAdapter(dataAdapter);
+        rv_event.setLayoutManager(linearLayoutManager);
+        dataAdapter = new DataAdapter(this,Events);
+        rv_event.setAdapter(dataAdapter);
         // read data
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("Hotel");
+        databaseReference = firebaseDatabase.getReference("Event");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String add, image, des, phone, name;
+                String name,add, image, des, phone;
 
-                Hotels.clear();
+                Events.clear();
                 for(DataSnapshot data: dataSnapshot.getChildren()){
-                    name = data.child("name").getValue().toString();
                     add = data.child("Address").getValue().toString();
                     image = data.child("image").getValue().toString();
                     des = data.child("Des").getValue().toString();
-                    phone = data.child("phone").getValue().toString();
+                    phone = data.child("date").getValue().toString();
+                    name = data.child("name").getValue().toString();
 
-                    Data hotels = new Data(image,name,phone,des,add);
-                    Hotels.add(hotels);
+                    Data events = new Data(image,name,add,des,phone);
+                    Events.add(events);
                     dataAdapter.notifyDataSetChanged();
                 }
             }
@@ -143,10 +128,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+      }}
 
-
-
-
-
-    }
-}

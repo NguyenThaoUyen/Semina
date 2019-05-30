@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ProfileActivity extends AppCompatActivity {
 
 
-    Button btn_login, btn_register;
+    Button btn_login, btn_register,btn_post;
 
     FirebaseUser firebaseUser;
 
@@ -49,8 +49,6 @@ public class ProfileActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
         // button login
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +65,18 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent reg_intent = new Intent (ProfileActivity.this, RegisterActivity.class);
                 startActivity(reg_intent);
+            }
+        });
+
+
+        //btn_post
+
+        btn_post = findViewById(R.id.btn_post);
+        btn_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent post_intent = new Intent (ProfileActivity.this, MainActivity.class);
+                startActivity(post_intent);
             }
         });
 

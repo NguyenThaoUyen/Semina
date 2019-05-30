@@ -1,5 +1,6 @@
 package com.example.semina;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.semina.Adapter.DataAdapter;
+import com.example.semina.Adapter.ItemClickListener;
 import com.example.semina.Model.Data;
 
 import com.google.firebase.database.DataSnapshot;
@@ -47,6 +49,24 @@ public class ListFoodActivity extends AppCompatActivity {
         rv_food.setLayoutManager(linearLayoutManager);
         dataAdapter =new DataAdapter(this,Foods);
         rv_food.setAdapter(dataAdapter);
+        // liss
+        dataAdapter.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent_foods = new Intent(ListFoodActivity.this, Detail_foodActivity.class);
+                intent_foods.putExtra("name_food", Foods.get(position).getName());
+                intent_foods.putExtra("address_food", Foods.get(position).getAddress());
+                intent_foods.putExtra("image_food", Foods.get(position).getImage());
+                intent_foods.putExtra("des_food", Foods.get(position).getDes());
+
+                startActivity(intent_foods);
+            }
+
+            @Override
+            public void onItemLongClick(int position) {
+
+            }
+        });
 
         //read data
         firebaseDatabase =FirebaseDatabase.getInstance();

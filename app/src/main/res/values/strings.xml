@@ -17,7 +17,7 @@
     <string name="post">post </string>
     <string name="title_activity_detailhotel">DetailhotelActivity</string>
     <string name="title">Title</string>
-    <string name="introdution_to_the_hotel">Introdution to the hotel</string>
+    <string name="introdution">Introdution</string>
     <string name="resort_a">Resort A</string>
     <string name="todo">TODO</string>
     <string name="hotel">HOTEL</string>
@@ -29,6 +29,8 @@
     <string name="information_account">Information account</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
+    <string name="address">address</string>
+    <string name="phone">phone</string>
 
 
 </resources>

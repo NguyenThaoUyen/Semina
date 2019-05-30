@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:cardBackgroundColor="#FAFBFD"
+    app:cardBackgroundColor="#95C6DD"
     app:cardElevation="5dp"
     android:padding="5dp"
     android:layout_margin="2dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 >
@@ -15,7 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/title"
@@ -45,7 +46,7 @@
             android:layout_height="200dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/todo" />
     </LinearLayout>
 
