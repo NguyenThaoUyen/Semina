@@ -16,7 +16,7 @@
     <string name="hint_no_login"> chưa đăng nhập </string>
     <string name="post">post </string>
     <string name="title_activity_detailhotel">DetailhotelActivity</string>
-    <string name="introdution">Introdution</string>
+    <string name="introdution">Giới Thiệu</string>
     <string name="todo">TODO</string>
     <string name="hotel">HOTEL</string>
     <string name="food">FOOD</string>
@@ -32,9 +32,16 @@
     <string name="name_title">Name_title</string>
     <string name="Login">Login</string>
     <string name="write_review">write review</string>
-    <string name="nameuser">name user</string >
-    <string name="Map">Map</string>
-    <string name="logout">Log Out</string>
+    <string name="nameuser">name user</string>
+    <string name="Map">Bản đồ</string>
+    <string name="logout">Đăng Xuất</string>
+    <string name="name_avatar">name_avatar</string>
+    <string name="change_image">Change image</string>
+    <string name="change_phone">Change Phone</string>
+    <string name="change_infor">Change Information user</string>
+    <string name="comlete">Comlete</string>
+    <string name="log_out">Log out</string>
+    <string name="Trang_chu">Trang chủ</string>
 
 
 </resources>

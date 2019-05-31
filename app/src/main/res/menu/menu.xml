@@ -2,6 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/image"
+        android:title="@string/Trang_chu"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/introduce"
+        android:title="@string/introdution"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/account_setting"
         android:title="@string/Map"/>
 
@@ -9,4 +17,5 @@
         android:id="@+id/logout"
         android:title="@string/logout"
         app:showAsAction="never" />
+
 </menu>

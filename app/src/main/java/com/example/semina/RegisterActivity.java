@@ -64,9 +64,9 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_pass = password.getText().toString();
 
                 if (TextUtils.isEmpty(txt_user) || (TextUtils.isEmpty(txt_email)) || (TextUtils.isEmpty(txt_pass))){
-                    Toast.makeText(RegisterActivity.this, "All fileds are required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Đăng nhập lại", Toast.LENGTH_SHORT).show();
                 } else if (txt_pass.length()<6){
-                    Toast.makeText(RegisterActivity.this, "Password must be a least 6 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Password phải lớn hơn 6 kí tự", Toast.LENGTH_SHORT).show();
                 } else {
                     register(txt_user, txt_email, txt_pass);
                 }
@@ -104,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 });
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Tài khoảnh không đúng", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

@@ -18,9 +18,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginUsersActivity extends AppCompatActivity {
 
-
-
-
     EditText ed_gmail, ed_password;
     Button btn_login;
     FirebaseAuth auth;
@@ -52,7 +49,7 @@ public class LoginUsersActivity extends AppCompatActivity {
                 String txt_password = ed_password.getText().toString();
 
                 if ((TextUtils.isEmpty(txt_gmail)) || (TextUtils.isEmpty(txt_password))) {
-                    Toast.makeText(LoginUsersActivity.this, "All fileds are required", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginUsersActivity.this, " Đăng nhập lại ", Toast.LENGTH_SHORT).show();
                 } else {
                     auth.signInWithEmailAndPassword(txt_gmail, txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -68,7 +65,7 @@ public class LoginUsersActivity extends AppCompatActivity {
                                         finish();
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(LoginUsersActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginUsersActivity.this, "Tài khoảng không đúng", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }

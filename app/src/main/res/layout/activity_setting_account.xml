@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Setting_accountActivity"
+    android:background="@drawable/nen"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+
+
+          <de.hdodenhof.circleimageview.CircleImageView
+              android:layout_width="150dp"
+              android:layout_height="150dp"
+              android:src="@drawable/default_avatar"
+              android:id="@+id/image"
+              android:layout_gravity="center"
+              android:layout_marginTop="30dp"
+              />
+
+            <TextView
+                android:id="@+id/name_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name_avatar"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/image"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+
+
+                        />
+            <TextView
+                android:id="@+id/change_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/change_image"
+                android:textColor="@color/toolbar"
+                android:padding="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp">
+
+            </TextView>
+          <TextView
+              android:id="@+id/log_out"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/log_out"
+              android:textColor="@color/toolbar"
+              android:padding="5dp"
+              android:layout_marginLeft="5dp"
+
+      />
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
