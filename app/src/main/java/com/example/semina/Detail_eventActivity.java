@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide;
 public class Detail_eventActivity extends AppCompatActivity {
 
     //layout
-    TextView title, Address,phone,des;
+    TextView title, Address,date,des;
     ImageView image;
 
     @Override
@@ -28,7 +28,7 @@ public class Detail_eventActivity extends AppCompatActivity {
         //find id
         Address = findViewById(R.id.Address);
         title = findViewById(R.id.title);
-        phone = findViewById(R.id.phone);
+        date = findViewById(R.id.date);
         des = findViewById(R.id.des);
         image = findViewById(R.id.image);
         //data
@@ -43,7 +43,7 @@ public class Detail_eventActivity extends AppCompatActivity {
         Glide.with(this).load(image_event).into(image);
         title.setText(name_event);
         Address.setText(address_event);
-        phone.setText(date_event);
+        date.setText(date_event);
         des.setText(des_event);
     }
 }

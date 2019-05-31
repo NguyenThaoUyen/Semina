@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.semina.Adapter.DataAdapter;
+import com.example.semina.Adapter.ItemClickListener;
 import com.example.semina.Model.Data;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -102,6 +103,23 @@ private ArrayList<Data> Events =new ArrayList<>();
         rv_event.setLayoutManager(linearLayoutManager);
         dataAdapter = new DataAdapter(this,Events);
         rv_event.setAdapter(dataAdapter);
+        // set onclick cho item_card_view_event
+        dataAdapter.setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent_event = new Intent(MainActivity.this, Detail_eventActivity.class);
+                intent_event.putExtra("name_event", Events.get(position).getName());
+                intent_event.putExtra("address_event", Events.get(position).getAddress());
+                intent_event.putExtra("image_event", Events.get(position).getImage());
+                intent_event.putExtra("des_event", Events.get(position).getDes());
+                intent_event.putExtra("date_event", Events.get(position).getDate());
+                startActivity(intent_event);
+            }
+
+            @Override
+            public void onItemLongClick(int position) {
+
+            }});
         // read data
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Event");

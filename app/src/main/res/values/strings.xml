@@ -16,9 +16,7 @@
     <string name="hint_no_login"> chưa đăng nhập </string>
     <string name="post">post </string>
     <string name="title_activity_detailhotel">DetailhotelActivity</string>
-    <string name="title">Title</string>
     <string name="introdution">Introdution</string>
-    <string name="resort_a">Resort A</string>
     <string name="todo">TODO</string>
     <string name="hotel">HOTEL</string>
     <string name="food">FOOD</string>
@@ -27,10 +25,13 @@
     <string name="festival">lễ hội mới nhất</string>
     <string name="review_m_i_nh_t">Review mới nhất</string>
     <string name="information_account">Information account</string>
-    <string name="register">Register</string>
-    <string name="login">Login</string>
+    <string name="Register">Register</string>
     <string name="address">address</string>
     <string name="phone">phone</string>
+    <string name="date">date</string>
+    <string name="name_title">Name_title</string>
+    <string name="Login">Login</string>
+    <string name="write_review">write review</string>
 
 
 </resources>

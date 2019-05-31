@@ -66,13 +66,6 @@ public class ListEventActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
-
         // read data
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Event");

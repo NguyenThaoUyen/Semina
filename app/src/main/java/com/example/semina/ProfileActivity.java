@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,8 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
-
-    Button btn_login, btn_register,btn_post;
+    TextView text_login,text_register,text_review;
 
     FirebaseUser firebaseUser;
 
@@ -48,37 +48,35 @@ public class ProfileActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //find id cho cac textview
+        text_login = findViewById(R.id.text_login);
+        text_register = findViewById(R.id.text_register);
+        text_review = findViewById(R.id.text_review);
 
-        // button login
-        btn_login = findViewById(R.id.btn_login);
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        //set on click cho cac text view
+        text_login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent log_intent = new Intent (ProfileActivity.this, LoginuserActivity.class);
-                startActivity(log_intent);
+            public void onClick(View v) {
+                Intent intent_login= new Intent(ProfileActivity.this,LoginUsersActivity.class);
+                startActivity(intent_login);
             }
         });
-        //button register
-        btn_register = findViewById(R.id.btn_register);
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        text_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent reg_intent = new Intent (ProfileActivity.this, RegisterActivity.class);
-                startActivity(reg_intent);
+        public void onClick(View v) {
+            Intent intent_login= new Intent(ProfileActivity.this,RegisterActivity.class);
+            startActivity(intent_login);
+        }
+    });
+        text_review.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_login= new Intent(ProfileActivity.this,Post_reviewActivity.class);
+                startActivity(intent_login);
             }
         });
 
 
-        //btn_post
-
-        btn_post = findViewById(R.id.btn_post);
-        btn_post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent post_intent = new Intent (ProfileActivity.this, MainActivity.class);
-                startActivity(post_intent);
-            }
-        });
 
     }
 

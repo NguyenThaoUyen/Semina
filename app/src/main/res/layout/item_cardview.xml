@@ -3,13 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    app:cardBackgroundColor="#95C6DD"
+    app:cardBackgroundColor="#BCD5E0"
     app:cardElevation="5dp"
     android:padding="5dp"
     android:layout_margin="2dp"
     app:cardCornerRadius="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/cardview_default_radius"
+    android:outlineSpotShadowColor="@color/black"
+
 >
 
     <LinearLayout
@@ -24,7 +27,7 @@
             android:layout_height="wrap_content"
             android:textColor="#090808"
             android:textSize="20sp"
-            android:text="@string/title"
+            android:text="@string/name_title"
             android:layout_marginStart="5dp"
             android:textStyle="bold"
             />
@@ -35,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:textColor="#090808"
             android:textSize="16sp"
-            android:text="@string/title"
+            android:text="@string/address"
             android:layout_marginStart="10dp"
             />
 

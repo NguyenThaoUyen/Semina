@@ -28,8 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:gravity="center"
-        android:text="@string/resort_a"
+        android:text="@string/name_title"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -41,7 +40,7 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:layout_marginStart="10dp"
-        android:gravity="center"
+
         />
     <TextView
         android:id="@+id/phone"
@@ -51,13 +50,12 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:layout_marginStart="10dp"
-        android:gravity="center"
+
         />
     <TextView
         android:id="@+id/des"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_margin="10dp"
         android:text="@string/introdution"
         android:textColor="@color/black"

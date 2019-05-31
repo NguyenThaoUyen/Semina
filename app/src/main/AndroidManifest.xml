@@ -13,12 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Detail_eventActivity"></activity>
-        <activity android:name=".Detail_placeActivity" />
-        <activity android:name=".Detail_foodActivity" />
+        <activity android:name=".LoginUsersActivity"
+            android:parentActivityName=".ProfileActivity">
+
+        </activity>
+        <activity android:name=".Post_reviewActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".Detail_eventActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Detail_placeActivity"
+            android:parentActivityName=".ListhotelActivity" />
+        <activity
+            android:name=".Detail_foodActivity"
+            android:parentActivityName=".ListFoodActivity" />
         <activity
             android:name=".Detail_hotelActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ListhotelActivity" />
         <activity
             android:name=".ListEventActivity"
             android:parentActivityName=".MainActivity" />
@@ -28,9 +40,6 @@
         <activity
             android:name=".ProfileActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".LoginuserActivity"
-            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".ListplaceActivity"
             android:parentActivityName=".MainActivity" />
