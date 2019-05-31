@@ -32,6 +32,9 @@
     <string name="name_title">Name_title</string>
     <string name="Login">Login</string>
     <string name="write_review">write review</string>
+    <string name="nameuser">name user</string >
+    <string name="Map">Map</string>
+    <string name="logout">Log Out</string>
 
 
 </resources>
