@@ -59,6 +59,18 @@
               android:layout_marginLeft="5dp"
 
       />
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/review"
+        android:textStyle="bold"
+        android:textColor="@color/toolbar"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+
+
+        />
 
 </LinearLayout>
 

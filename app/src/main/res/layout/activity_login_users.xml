@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".LoginUsersActivity"
     android:background="@drawable/nen"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -28,14 +29,15 @@
         android:id="@+id/ed_gmail"
         android:hint="@string/hint_gmail"
         android:layout_marginTop="10dp"
-        android:inputType="textPassword" />
+        android:inputType="textEmailAddress"
+        />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ed_password"
         android:hint="@string/hint_password"
         android:layout_marginTop="10dp"
-        android:inputType="textEmailAddress" />
+        android:inputType="textPassword" />
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
@@ -44,6 +46,15 @@
         android:background="@color/button"
         android:text="@string/Login"
         android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/toolbar"
+        android:text="@string/forgot_password"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        />
 
 
 

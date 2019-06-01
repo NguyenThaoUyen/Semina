@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,6 +21,7 @@ public class LoginUsersActivity extends AppCompatActivity {
 
     EditText ed_gmail, ed_password;
     Button btn_login;
+    TextView forgot_password;
     FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class LoginUsersActivity extends AppCompatActivity {
         ed_password= findViewById(R.id.ed_password);
         ed_gmail = findViewById(R.id.ed_gmail);
         btn_login = findViewById(R.id.btn_login);
+        forgot_password= findViewById(R.id.forgot_password);
 
 
 
@@ -49,7 +52,7 @@ public class LoginUsersActivity extends AppCompatActivity {
                 String txt_password = ed_password.getText().toString();
 
                 if ((TextUtils.isEmpty(txt_gmail)) || (TextUtils.isEmpty(txt_password))) {
-                    Toast.makeText(LoginUsersActivity.this, " Đăng nhập lại ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginUsersActivity.this, " Yêu Cầu thất bại ", Toast.LENGTH_SHORT).show();
                 } else {
                     auth.signInWithEmailAndPassword(txt_gmail, txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -71,6 +74,14 @@ public class LoginUsersActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+        //on  click forgot pass
+        forgot_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forgot_intent = new Intent(LoginUsersActivity.this,ResetPassActivity.class);
+                startActivity(forgot_intent);
             }
         });
     }

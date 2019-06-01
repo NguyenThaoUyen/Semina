@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TextView text_login,text_register,text_review;
+    TextView text_login,text_register;
 
     FirebaseUser firebaseUser;
 
@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         //find id cho cac textview
         text_login = findViewById(R.id.text_login);
         text_register = findViewById(R.id.text_register);
-        text_review = findViewById(R.id.text_review);
+
 
         //set on click cho cac text view
         text_login.setOnClickListener(new View.OnClickListener() {
@@ -68,13 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(intent_login);
         }
     });
-        text_review.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_login= new Intent(ProfileActivity.this,Post_reviewActivity.class);
-                startActivity(intent_login);
-            }
-        });
+
 
 
 

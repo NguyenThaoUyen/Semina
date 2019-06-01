@@ -13,6 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListpostActivity"></activity>
+        <activity android:name=".ResetPassActivity" />
         <activity android:name=".Setting_accountActivity" />
         <activity
             android:name=".LoginUsersActivity"

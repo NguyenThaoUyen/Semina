@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText user, email, password;
-    Button register;
+    Button btn_register;
 
 
     //database
@@ -47,16 +47,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         //find id
         user = findViewById(R.id.username);
-        password = findViewById(R.id.textpass);
-        email = findViewById(R.id.textemail);
-        register = findViewById(R.id.btn_register);
+        password = findViewById(R.id.ed_password);
+        email = findViewById(R.id.email);
+        btn_register = findViewById(R.id.btn_register);
         //firebase auth
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("User");
 
         //set on click button
-        register.setOnClickListener(new View.OnClickListener() {
+        btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt_user = user.getText().toString();
@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_pass = password.getText().toString();
 
                 if (TextUtils.isEmpty(txt_user) || (TextUtils.isEmpty(txt_email)) || (TextUtils.isEmpty(txt_pass))){
-                    Toast.makeText(RegisterActivity.this, "Đăng nhập lại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "không để trống đăng nhập", Toast.LENGTH_SHORT).show();
                 } else if (txt_pass.length()<6){
                     Toast.makeText(RegisterActivity.this, "Password phải lớn hơn 6 kí tự", Toast.LENGTH_SHORT).show();
                 } else {
@@ -104,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 });
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(RegisterActivity.this, "Tài khoảnh không đúng", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "đăng ký ko thành công", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
