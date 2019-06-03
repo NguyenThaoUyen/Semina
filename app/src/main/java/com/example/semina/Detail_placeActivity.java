@@ -22,7 +22,7 @@ public class Detail_placeActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail place");
+        getSupportActionBar().setTitle("Thông Tin Địa Điểm");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //find id
         Address = findViewById(R.id.Address);

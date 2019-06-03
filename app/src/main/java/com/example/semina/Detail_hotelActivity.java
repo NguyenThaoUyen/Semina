@@ -37,7 +37,7 @@ public class Detail_hotelActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail Hotel");
+        getSupportActionBar().setTitle("Thông Tin Khách Sạn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //find id
         Address = findViewById(R.id.Address);

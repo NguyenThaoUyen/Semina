@@ -52,7 +52,7 @@ public class LoginUsersActivity extends AppCompatActivity {
                 String txt_password = ed_password.getText().toString();
 
                 if ((TextUtils.isEmpty(txt_gmail)) || (TextUtils.isEmpty(txt_password))) {
-                    Toast.makeText(LoginUsersActivity.this, " Yêu Cầu thất bại ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginUsersActivity.this, " Không để trống thông tin đăng nhập nhé  ", Toast.LENGTH_SHORT).show();
                 } else {
                     auth.signInWithEmailAndPassword(txt_gmail, txt_password)
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -68,7 +68,7 @@ public class LoginUsersActivity extends AppCompatActivity {
                                         finish();
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Toast.makeText(LoginUsersActivity.this, "Tài khoảng không đúng", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginUsersActivity.this, "Kiểm tra lại thông tin nào ", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }

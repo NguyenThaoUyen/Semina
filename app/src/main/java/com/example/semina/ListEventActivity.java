@@ -37,7 +37,7 @@ public class ListEventActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("List Event");
+        getSupportActionBar().setTitle("Lễ Hội");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -59,6 +59,11 @@ public class ListEventActivity extends AppCompatActivity {
                 intent_event.putExtra("des_event", Events.get(position).getDes());
                 intent_event.putExtra("date_event", Events.get(position).getDate());
                 startActivity(intent_event);
+            }
+
+            @Override
+            public void onDeleteItemClick(int position) {
+
             }
 
             @Override

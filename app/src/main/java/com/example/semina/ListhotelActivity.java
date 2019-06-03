@@ -41,7 +41,7 @@ public class ListhotelActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("List Hotel");
+        getSupportActionBar().setTitle("Khách Sạn ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // recyclerview
         rv_hotel = findViewById(R.id.rv_hotel);
@@ -61,6 +61,11 @@ public class ListhotelActivity extends AppCompatActivity {
                 intent_hotels.putExtra("des_hotel", Hotels.get(position).getDes());
                 intent_hotels.putExtra("phone_hotel", Hotels.get(position).getPhone());
                 startActivity(intent_hotels);
+            }
+
+            @Override
+            public void onDeleteItemClick(int position) {
+
             }
 
             @Override

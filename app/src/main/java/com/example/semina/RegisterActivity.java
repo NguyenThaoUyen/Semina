@@ -23,15 +23,13 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText user, email, password;
-    Button btn_register;
-
+    EditText user, email, pass;
+    Button register;
 
     //database
-    FirebaseAuth auth;
+    private FirebaseAuth auth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
 
 
 
@@ -47,68 +45,78 @@ public class RegisterActivity extends AppCompatActivity {
 
         //find id
         user = findViewById(R.id.username);
-        password = findViewById(R.id.ed_password);
-        email = findViewById(R.id.email);
-        btn_register = findViewById(R.id.btn_register);
+        pass = findViewById(R.id.textpass);
+        email = findViewById(R.id.textemail);
+        register = findViewById(R.id.btn_reg);
+
         //firebase auth
         auth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference("User");
+        databaseReference = firebaseDatabase.getReference("Users");
 
         //set on click button
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String txt_user = user.getText().toString();
                 String txt_email = email.getText().toString();
-                String txt_pass = password.getText().toString();
+                String txt_pass = pass.getText().toString();
 
-                if (TextUtils.isEmpty(txt_user) || (TextUtils.isEmpty(txt_email)) || (TextUtils.isEmpty(txt_pass))){
-                    Toast.makeText(RegisterActivity.this, "không để trống đăng nhập", Toast.LENGTH_SHORT).show();
-                } else if (txt_pass.length()<6){
-                    Toast.makeText(RegisterActivity.this, "Password phải lớn hơn 6 kí tự", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(txt_user) || (TextUtils.isEmpty(txt_email)) || (TextUtils.isEmpty(txt_pass))) {
+                    Toast.makeText(RegisterActivity.this, "All fileds are required", Toast.LENGTH_SHORT).show();
+                } else if (txt_pass.length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "Password must be a least 6 characters", Toast.LENGTH_SHORT).show();
                 } else {
                     register(txt_user, txt_email, txt_pass);
                 }
             }
         });
     }
-        private void register(final String username, String email, String password)
-        {
-            auth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                FirebaseUser user = auth.getCurrentUser();
-                                assert user != null;
-                                String userid = user.getUid();
-                                //push  database
-                                HashMap<String, String> hashMap = new HashMap<>();
-                                hashMap.put("id", userid);
-                                hashMap.put("username", username);
-                                hashMap.put("ImageURL", "default");
+    private void register(final String username, String email, String password)
+    {
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            FirebaseUser user = auth.getCurrentUser();
+                            assert user != null;
+                            String userid = user.getUid();
+                            //push  database
+                            HashMap<String, String> hashMap = new HashMap<>();
+                            hashMap.put("id", userid);
+                            hashMap.put("username", username);
+                            hashMap.put("ImageURL", "default");
+                            hashMap.put("review","Chuyến đi của bạn hôm nay có gì nào? hãy chia sẽ với chúng tôi :)");
 
-
-                                databaseReference.child(userid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Intent a = new Intent(RegisterActivity.this, MainActivity.class);
-                                            a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                                            startActivity(a);
-                                            finish();
-                                        }
+                            databaseReference.child(userid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Intent a = new Intent(RegisterActivity.this,Setting_accountActivity.class);
+                                        a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(a);
+                                        finish();
                                     }
-                                });
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(RegisterActivity.this, "đăng ký ko thành công", Toast.LENGTH_SHORT).show();
-                            }
+                                }
+                            });
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
-                    });
+                    }
+                });
+    }
     }
 
-    }
+
+
+
+
+
+
+
+
+
 

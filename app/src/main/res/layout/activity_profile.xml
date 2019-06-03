@@ -13,63 +13,137 @@
         layout="@layout/toolbar" />
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:padding="10dp"
-    >
-
-    <TextView
-        android:id="@+id/welcome_profile"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="@string/information_account"
-       android:gravity="center"
-        android:textSize="30sp"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-
-
-          />
-    <TextView
-        android:id="@+id/text_login"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/loginaccount"
-        android:layout_below="@id/welcome_profile"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/toolbar"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        />
+        android:padding="5dp">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/default_avatar"
+            android:contentDescription="@string/todo"/>
+        <TextView
+            android:id="@+id/name_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/image_avatar"
+            android:text="@string/name_avatar"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:padding="10dp"/>
+        <ImageButton
+            android:id="@+id/change_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="-20dp"
+            android:layout_toEndOf="@id/image_avatar"
+            android:layout_below="@id/name_avatar"
+            android:background="@drawable/ic_action_avatar"
+            android:contentDescription="@string/todo"
+            android:visibility="gone"/>
 
-
-    <TextView
-        android:id="@+id/text_register"
-        android:layout_width="wrap_content"
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/login"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/registeraccount"
-        android:layout_below="@id/text_login"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/toolbar"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="visible">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_action_edit"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/todo"/>
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loginaccount"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/toolbar"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="visible">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_action_edit"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/todo"/>
+        <TextView
+            android:id="@+id/text_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registeraccount"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/toolbar"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/review_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_action_review"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/todo"/>
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/review_m_i_nh_t"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/toolbar"
+            />
+    </LinearLayout>
 
-        />
-
-
-
-
-
-
-
-
-
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_action_logout"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/todo"/>
+        <TextView
+            android:id="@+id/log_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/log_out"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/toolbar" />
+    </LinearLayout>
 </LinearLayout>
+
+
+
+
 
 
 

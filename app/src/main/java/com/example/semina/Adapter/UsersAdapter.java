@@ -10,9 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.example.semina.ListpostActivity;
+
 import com.example.semina.Model.User;
 import com.example.semina.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +21,17 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
+
     private List<User> users;
 
     private Context context;
+
     private ItemClickListener itemClickListener;
     public UsersAdapter(Context context, List<User> users) {
         this.context = context;
         this.users = users;
 
     }
-
-
     public void setItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
     }
@@ -49,15 +50,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     @Override
     public void onBindViewHolder(@NonNull final UsersAdapter.UsersViewHolder holder, int position) {
         final User user = users.get(position);
-        TextView name = holder.user_name;
+        TextView name = holder.name_avatar;
         name.setText(user.getUsername());
-        TextView status = holder.user_review;
-        status.setText(user.getReview());
-        CircleImageView image = holder.profile_image;
-        if (user.getImageUrl().equals("default")) {
+        TextView review = holder.review;
+        review.setText(user.getReview());
+
+
+        CircleImageView image = holder.image_avatar;
+        if (user.getImageURL().equals("default")) {
             image.setImageResource(R.drawable.user);
         } else {
-            Glide.with(context).load(user.getImageUrl()).centerCrop().placeholder(R.drawable.default_avatar).into(image);
+            Glide.with(context).load(user.getImageURL()).centerCrop().placeholder(R.drawable.default_avatar).into(image);
         }
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,32 +75,35 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             }
         });
 
+
+
     }
 
 
     public static class UsersViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView user_name;
-        public CircleImageView profile_image;
-        public TextView user_review;
+        public TextView name_avatar;
+        public CircleImageView image_avatar;
+        public TextView review;
         public RelativeLayout item;
 
 
 
         public UsersViewHolder(View itemView) {
             super(itemView);
-            user_name = itemView.findViewById(R.id.username);
-            profile_image = itemView.findViewById(R.id.image);
-            user_review = itemView.findViewById(R.id.review);
+            name_avatar = itemView.findViewById(R.id.name_avatar);
+            image_avatar = itemView.findViewById(R.id.image_avatar);
+            review = itemView.findViewById(R.id.review);
             item = itemView.findViewById(R.id.item);
         }
     }
 
-    public void updateList(List<User> userSearch){
+    public void updateReview(List<User> userReview){
         users = new ArrayList<>();
-        users.addAll(userSearch);
+        users.addAll(userReview);
         notifyDataSetChanged();
     }
+
 
 
 }

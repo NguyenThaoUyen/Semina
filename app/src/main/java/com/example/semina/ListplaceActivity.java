@@ -35,7 +35,7 @@ public class ListplaceActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("List Place");
+        getSupportActionBar().setTitle("Địa Điểm Du Lịch");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //recycleview
@@ -56,6 +56,11 @@ public class ListplaceActivity extends AppCompatActivity {
                 intent_places.putExtra("des_place", Places.get(position).getDes());
 
                 startActivity(intent_places);
+            }
+
+            @Override
+            public void onDeleteItemClick(int position) {
+
             }
 
             @Override

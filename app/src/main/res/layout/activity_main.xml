@@ -1,113 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity"
-    >
-
-    <LinearLayout
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/nen">
-
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-
-        <RelativeLayout
-            android:id="@+id/button"
-            android:layout_width="match_parent"
+        android:background="@color/toolbar"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/MenuStyle">
+        <ImageButton
+            android:id="@+id/btn_map"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_checkin"
+            android:contentDescription="@string/todo"
+            />
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/buton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_hotel"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/button">
+            android:text="@string/hotel" />
+        <Button
+            android:id="@+id/btn_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/food"
+            android:layout_toEndOf="@+id/btn_hotel"/>
+        <Button
+            android:id="@+id/btn_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/place"
+            android:layout_toEndOf="@+id/btn_food"/>
 
-            <Button
-                android:id="@+id/btn_hotel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/button"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/hotel" />
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/btn_place"
+            android:text="@string/profile" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/festival"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/festival"
+        android:textColor="@color/black"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_event"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+    </android.support.v7.widget.RecyclerView>
 
-            <Button
-                android:id="@+id/btn_food"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/btn_hotel"
-                android:background="@color/button"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/food" />
+    <TextView
+        android:id="@+id/txt_eview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/review_m_i_nh_t"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </android.support.v7.widget.RecyclerView>
 
-            <Button
-                android:id="@+id/btn_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/btn_food"
-                android:background="@color/button"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/place" />
-
-            <Button
-                android:id="@+id/btn_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/btn_place"
-                android:background="@color/button"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="@string/profile" />
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/text_review"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/write_review"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-         <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_review"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_below="@id/text_review">
-
-         </android.support.v7.widget.RecyclerView>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/text_event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/festival"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_event"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/text_event"
-                android:layout_marginTop="0dp" />
-        </RelativeLayout>
-    </LinearLayout>
-</ScrollView>
-
+    </ScrollView>
+</LinearLayout>

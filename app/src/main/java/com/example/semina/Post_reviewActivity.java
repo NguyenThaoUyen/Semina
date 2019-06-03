@@ -19,8 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Post_reviewActivity extends AppCompatActivity {
 
-    private EditText Status;
-    private DatabaseReference StatusDatabase;
+    private EditText reviews;
+    private DatabaseReference ReviewDatabase;
     FirebaseUser CurrentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,14 +36,14 @@ public class Post_reviewActivity extends AppCompatActivity {
         CurrentUser = FirebaseAuth.getInstance().getCurrentUser();
         assert CurrentUser != null;
         String current_Uid = CurrentUser.getUid();
-        StatusDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(current_Uid);
+        ReviewDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(current_Uid);
         // find id
-        Status = findViewById(R.id.edit_review);
+        reviews = findViewById(R.id.review);
         Button btn_Save = findViewById(R.id.btn_post);
 
         //status value
-        String status_value = getIntent().getStringExtra("status_value");
-        Status.setText(status_value);
+        String review_value = getIntent().getStringExtra("review_value");
+        reviews.setText(review_value);
 
         // set onclick button
         //button save changes
@@ -51,8 +51,8 @@ public class Post_reviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String status = Status.getText().toString();
-                StatusDatabase.child("status").setValue(status).addOnCompleteListener(new OnCompleteListener<Void>() {
+                String review = reviews.getText().toString();
+                ReviewDatabase.child("review").setValue(review).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {

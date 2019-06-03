@@ -1,23 +1,35 @@
 package com.example.semina;
 
+import android.annotation.SuppressLint;
 import android.arch.lifecycle.Lifecycle;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.semina.Adapter.DataAdapter;
 import com.example.semina.Adapter.ItemClickListener;
+import com.example.semina.Adapter.UsersAdapter;
 import com.example.semina.Model.Data;
+import com.example.semina.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,44 +37,49 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.support.v7.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+@SuppressLint("WrongViewCast")
 public class MainActivity extends AppCompatActivity {
-    Button btn_hotel, btn_place, btn_food, btn_profile;
-//hotel
-private ArrayList<Data> Events =new ArrayList<>();
+    //list post
 
-    DataAdapter dataAdapter;
-    RecyclerView rv_event;
+        Button btn_hotel, btn_place, btn_food, btn_profile;
 
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+        ImageButton btn_map;
 
+    //event
+    private ArrayList<Data> Events =new ArrayList<>();
+        DataAdapter dataAdapter;
+        RecyclerView rv_event;
+        //firebase
+        FirebaseDatabase firebaseDatabase;
+        DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //toolbar
+    //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Travel App");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
+        // find id
+        btn_map = findViewById(R.id.btn_map);
+    // set recyclerview cho list post
 
-
-        //find id
+        //find id button
         btn_hotel = findViewById(R.id.btn_hotel);
         btn_food = findViewById(R.id.btn_food);
         btn_place = findViewById(R.id.btn_place);
         btn_profile = findViewById(R.id.btn_profile);
-
         //button hotel
         btn_hotel = findViewById(R.id.btn_hotel);
         btn_hotel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent hotel_intent = new Intent (MainActivity.this, ListhotelActivity.class);
+                Intent hotel_intent = new Intent(MainActivity.this, ListhotelActivity.class);
                 startActivity(hotel_intent);
             }
         });
@@ -71,17 +88,16 @@ private ArrayList<Data> Events =new ArrayList<>();
         btn_food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent food_intent = new Intent (MainActivity.this, ListFoodActivity.class);
+                Intent food_intent = new Intent(MainActivity.this, ListFoodActivity.class);
                 startActivity(food_intent);
             }
         });
-
         //button place
         btn_place = findViewById(R.id.btn_place);
         btn_place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent place_intent = new Intent (MainActivity.this, ListplaceActivity.class);
+                Intent place_intent = new Intent(MainActivity.this, ListplaceActivity.class);
                 startActivity(place_intent);
             }
         });
@@ -90,18 +106,16 @@ private ArrayList<Data> Events =new ArrayList<>();
         btn_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent profile_intent = new Intent (MainActivity.this, ProfileActivity.class);
+                Intent profile_intent = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(profile_intent);
             }
         });
-        //rv
-
-        // recyclerview
+        //set recycler view cho event start
         rv_event = findViewById(R.id.rv_event);
         rv_event.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true);
         rv_event.setLayoutManager(linearLayoutManager);
-        dataAdapter = new DataAdapter(this,Events);
+        dataAdapter = new DataAdapter(this, Events);
         rv_event.setAdapter(dataAdapter);
         // set onclick cho item_card_view_event
         dataAdapter.setItemClickListener(new ItemClickListener() {
@@ -117,34 +131,73 @@ private ArrayList<Data> Events =new ArrayList<>();
             }
 
             @Override
+            public void onDeleteItemClick(int position) {
+
+            }
+
+            @Override
             public void onItemLongClick(int position) {
 
-            }});
+            }
+        });
         // read data
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Event");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String name,add, image, des, phone;
+                String name, add, image, des, phone;
 
                 Events.clear();
-                for(DataSnapshot data: dataSnapshot.getChildren()){
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
                     add = data.child("Address").getValue().toString();
                     image = data.child("image").getValue().toString();
                     des = data.child("Des").getValue().toString();
                     phone = data.child("date").getValue().toString();
                     name = data.child("name").getValue().toString();
 
-                    Data events = new Data(image,name,add,des,phone);
+                    Data events = new Data(image, name, add, des, phone);
                     Events.add(events);
                     dataAdapter.notifyDataSetChanged();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-      }}
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.search,menu);
+        MenuItem searchItem = menu.findItem(R.id.search_user);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+
+                search(text);
+
+                return true;
+            }
+        });
+        return true;
+    }
+
+    private void search(String text) {
+
+
+
+    }
+
+
+}
 

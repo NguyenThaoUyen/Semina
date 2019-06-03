@@ -23,7 +23,7 @@ public class Detail_eventActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail Event");
+        getSupportActionBar().setTitle("Thông Tin lễ Hội ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //find id
         Address = findViewById(R.id.Address);

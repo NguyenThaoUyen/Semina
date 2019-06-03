@@ -39,7 +39,7 @@ public class ListFoodActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("List Food");
+        getSupportActionBar().setTitle("Món Ăn Ngon ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //recyclerview
@@ -60,6 +60,11 @@ public class ListFoodActivity extends AppCompatActivity {
                 intent_foods.putExtra("des_food", Foods.get(position).getDes());
 
                 startActivity(intent_foods);
+            }
+
+            @Override
+            public void onDeleteItemClick(int position) {
+
             }
 
             @Override

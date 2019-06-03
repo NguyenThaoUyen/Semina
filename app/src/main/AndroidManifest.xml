@@ -13,9 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListpostActivity"></activity>
-        <activity android:name=".ResetPassActivity" />
-        <activity android:name=".Setting_accountActivity" />
+        <activity android:name=".ListpostActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ResetPassActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Setting_accountActivity"
+            android:parentActivityName=".MainActivity"
+            />
         <activity
             android:name=".LoginUsersActivity"
             android:parentActivityName=".ProfileActivity" />
@@ -62,6 +67,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

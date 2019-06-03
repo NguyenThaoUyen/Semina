@@ -3,25 +3,24 @@ package com.example.semina.Model;
 public class User {
     private String id;
     private String username;
-    private String ImageUrl;
+    private String ImageURL;
     private String review;
 
-    public User(String id, String username, String ImageUrl, String review) {
+
+    public User(String id, String username, String ImageURL, String review){
         this.id = id;
         this.username = username;
-        this.ImageUrl = ImageUrl;
-        this.review=review;
-    }
-
-    public String getReview() {
-        return review;
-    }
-
-    public void setReview(String review) {
+        this.ImageURL = ImageURL;
         this.review = review;
+
     }
+    public User(){
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
+
 
     public String getId() {
+
         return id;
     }
 
@@ -37,12 +36,20 @@ public class User {
         this.username = username;
     }
 
-    public String getImageUrl() {
-        return ImageUrl;
+    public String getImageURL() {
+        return ImageURL;
     }
 
-    public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+    public void setImageURL(String ImageURL) {
+        this.ImageURL = ImageURL;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String status) {
+        this.review = review;
     }
 
 

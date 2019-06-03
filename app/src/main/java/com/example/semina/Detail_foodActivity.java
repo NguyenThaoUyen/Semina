@@ -24,7 +24,7 @@ public class Detail_foodActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Detail Food");
+        getSupportActionBar().setTitle("Thông Tin Món Ăn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //find id
         Address = findViewById(R.id.Address);
