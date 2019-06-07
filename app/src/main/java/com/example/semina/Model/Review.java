@@ -1,57 +1,54 @@
 package com.example.semina.Model;
 
 public class Review {
-    private String id;
-    private String name_avatar;
-    private String  name_review;
-    private String  review;
-    private String Image_Url;
+    private String  review_content;
+    private String image_review;
+    private String nameuser;
+    private String imageuser;
 
-    public Review(String id, String name_avatar, String name_review, String review, String image_Url) {
-        this.id = id;
-        this.name_avatar = name_avatar;
-        this.name_review = name_review;
-        this.review = review;
-        Image_Url = image_Url;
+    public Review(String review_content, String image_review) {
+        this.review_content = review_content;
+        this.image_review = image_review;
     }
 
-    public String getId() {
-        return id;
+    public Review(String nameuser, String imageuser, String review_content, String image_review) {
+
+        this.review_content = review_content;
+        this.image_review = image_review;
+        this.nameuser=nameuser;
+        this.imageuser=imageuser;
+
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getNameuser() {
+        return nameuser;
     }
 
-    public String getName_avatar() {
-        return name_avatar;
+    public void setNameuser(String nameuser) {
+        this.nameuser = nameuser;
     }
 
-    public void setName_avatar(String name_avatar) {
-        this.name_avatar = name_avatar;
+    public String getImageuser() {
+        return imageuser;
     }
 
-    public String getName_review() {
-        return name_review;
+    public void setImageuser(String imageuser) {
+        this.imageuser = imageuser;
     }
 
-    public void setName_review(String name_review) {
-        this.name_review = name_review;
+    public String getReview_content() {
+        return review_content;
     }
 
-    public String getReview() {
-        return review;
+    public void setReview_content(String review_content) {
+        this.review_content = review_content;
     }
 
-    public void setReview(String review) {
-        this.review = review;
+    public String getImage_review() {
+        return image_review;
     }
 
-    public String getImage_Url() {
-        return Image_Url;
-    }
-
-    public void setImage_Url(String image_Url) {
-        Image_Url = image_Url;
+    public void setImage_review(String image_review) {
+        this.image_review = image_review;
     }
 }

@@ -23,6 +23,7 @@ import com.example.semina.Model.Data;
 import com.example.semina.R;
 
 import java.util.List;
+import java.util.Optional;
 
 public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolder>{
     private List<Data> dataList;
@@ -67,6 +68,7 @@ public class DataAdapter extends  RecyclerView.Adapter<DataAdapter.DataViewHolde
     public int getItemCount() {
         return dataList.size();
     }
+    //search
 
     /** Create ViewHolder*/
 

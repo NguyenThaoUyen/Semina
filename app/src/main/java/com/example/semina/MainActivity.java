@@ -27,8 +27,10 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.semina.Adapter.DataAdapter;
 import com.example.semina.Adapter.ItemClickListener;
+import com.example.semina.Adapter.ReviewAdapter;
 import com.example.semina.Adapter.UsersAdapter;
 import com.example.semina.Model.Data;
+import com.example.semina.Model.Review;
 import com.example.semina.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -44,12 +46,18 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 @SuppressLint("WrongViewCast")
 public class MainActivity extends AppCompatActivity {
+    private ArrayList<User> users = new ArrayList<>();
+    UsersAdapter usersAdapter;
+    //
+    CircleImageView image_avatar;
+    TextView name_avatar,xemthem, add;
     //list post
+    private  ArrayList<Review>Reviews= new ArrayList<>();
+    ReviewAdapter reviewAdapter;
 
-        Button btn_hotel, btn_place, btn_food, btn_profile;
-
-        ImageButton btn_map;
-
+    //
+    Button btn_hotel, btn_place, btn_food, btn_profile;
+    ImageButton btn_map;
     //event
     private ArrayList<Data> Events =new ArrayList<>();
         DataAdapter dataAdapter;
@@ -61,19 +69,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    //toolbar
+        //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         // find id
         btn_map = findViewById(R.id.btn_map);
-    // set recyclerview cho list post
-
         //find id button
         btn_hotel = findViewById(R.id.btn_hotel);
         btn_food = findViewById(R.id.btn_food);
         btn_place = findViewById(R.id.btn_place);
         btn_profile = findViewById(R.id.btn_profile);
+        xemthem=findViewById(R.id.xemthem);
+        add=findViewById(R.id.add);
         //button hotel
         btn_hotel = findViewById(R.id.btn_hotel);
         btn_hotel.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +118,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(profile_intent);
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent alldriver = new Intent(MainActivity.this, List_driverActivity.class);
+                startActivity(alldriver);
+            }
+        });
+        xemthem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent all = new Intent(MainActivity.this, ListEventActivity.class);
+                startActivity(all);
+            }
+        });
         //set recycler view cho event start
         rv_event = findViewById(R.id.rv_event);
         rv_event.setHasFixedSize(true);
@@ -140,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        // read data
+        // read data event
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Event");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -167,12 +189,36 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        image_avatar = findViewById(R.id.image_avatar);
+        name_avatar = findViewById(R.id.name_avatar);
+        // read data user
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference userDatabase = database.getReference("Users");
+        userDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                users.clear();
+                String name_avatar, image_avatar, id;
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    name_avatar = data.child("username").getValue().toString();
+                    id = data.getKey();
+                    image_avatar = data.child("ImageURL").getValue().toString();
+                    User user = new User(name_avatar, image_avatar, id);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.search,menu);
-        MenuItem searchItem = menu.findItem(R.id.search_user);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -184,20 +230,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String text) {
 
-                search(text);
+             search(text);
 
                 return true;
             }
+
+          private void search(String text) { }
         });
         return true;
     }
 
-    private void search(String text) {
-
-
-
-    }
-
-
 }
+   
+
+
 

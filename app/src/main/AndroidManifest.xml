@@ -13,14 +13,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListpostActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".ResetPassActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".Setting_accountActivity"
+        <activity android:name=".List_driverActivity"
             android:parentActivityName=".MainActivity"
-            />
+            ></activity>
+        <activity
+            android:name=".ListpostActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ResetPassActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Setting_accountActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LoginUsersActivity"
             android:parentActivityName=".ProfileActivity" />

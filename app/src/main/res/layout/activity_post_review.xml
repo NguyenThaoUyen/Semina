@@ -4,40 +4,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".Post_reviewActivity"
     android:orientation="vertical"
     android:background="@drawable/nen">
 
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
-    <TextView
-        android:id="@+id/text_review"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/review"
-        android:textSize="30sp"
-        android:textColor="@color/red"
-        android:textStyle="bold"
-        />
+    <RelativeLayout
+      android:id="@+id/user"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/image_avatar"
+          android:layout_width="60dp"
+          android:layout_height="60dp"
+          android:layout_marginBottom="10dp"
+          android:src="@drawable/default_avatar"
+          app:civ_border_color="#FF000000"
+          app:civ_border_width="2dp" />
+      <TextView
+          android:id="@+id/name_avatar"
+          android:layout_toRightOf="@+id/image_avatar"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textColor="#FF000000"
+          android:layout_toEndOf="@+id/image_avatar"
+          android:layout_marginLeft="5dp"
+          android:text="@string/name_avatar"
+          android:textStyle="bold"
+          android:textSize="18sp"
+          android:padding="10dp"/>
+        <Button
+            android:id="@+id/btn_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/button"
+            android:text="@string/post"
+            android:layout_toEndOf="@+id/name_avatar"
+            android:layout_marginStart="90dp"
+            />
+    </RelativeLayout>
+
     <EditText
-        android:id="@+id/review"
+        android:id="@+id/write_review"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/write_review"
+        android:text="@string/Write_review"
         android:textStyle="italic"
-        android:layout_marginTop="20dp"
-      />
-    <Button
-        android:id="@+id/btn_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:background="@color/button"
-        android:text="@string/post"/>
+        android:textColor="@color/button"
+        />
+
+
+
+
 
 </LinearLayout>

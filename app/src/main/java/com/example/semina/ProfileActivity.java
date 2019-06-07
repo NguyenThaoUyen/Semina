@@ -50,39 +50,33 @@ public class ProfileActivity extends AppCompatActivity {
     // Storage Firebase
     private StorageReference ImageStorage;
   //  FirebaseUser firebaseUser;
-    FirebaseUser currentUser;
+    FirebaseUser mUser, currentUser;
     LinearLayout login,logout, register, review_text;
     ImageView change_image;
-
-
-
-
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-
         //toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Thông Tin Tài Khoản");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                Toolbar toolbar = findViewById(R.id.toolbar);
+                setSupportActionBar(toolbar);
+                getSupportActionBar().setTitle("Thông Tin Tài Khoản");
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //find id
-        login = findViewById(R.id.login);
-        logout = findViewById(R.id.logout);
-        register = findViewById(R.id.register);
-        review_text = findViewById(R.id.review_text);
-        image_avatar =findViewById(R.id.image_avatar);
-        text_login=findViewById(R.id.text_login);
-        text_register=findViewById(R.id.text_register);
-        change_image =findViewById(R.id.change_image);
-        log_out=findViewById(R.id.log_out);
-        name_avatar=findViewById(R.id.name_avatar);
-        review=findViewById(R.id.review);
+                login = findViewById(R.id.login);
+                logout = findViewById(R.id.logout);
+                register = findViewById(R.id.register);
+                review_text = findViewById(R.id.review_text);
+                image_avatar =findViewById(R.id.image_avatar);
+                text_login=findViewById(R.id.text_login);
+                text_register=findViewById(R.id.text_register);
+                change_image =findViewById(R.id.change_image);
+                log_out=findViewById(R.id.log_out);
+                name_avatar=findViewById(R.id.name_avatar);
+                review=findViewById(R.id.review);
         ImageStorage = FirebaseStorage.getInstance().getReference();
-
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser==null){
             login.setVisibility(View.VISIBLE);
@@ -148,8 +142,7 @@ public class ProfileActivity extends AppCompatActivity {
                     startActivityForResult(Intent.createChooser(galleryIntent,"SELECT IMAGE"), GALLERY_PICK);
                 }
             });
-
-
+            // xử lí code
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             final DatabaseReference userDatabase = database.getReference("Users");
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -173,7 +166,6 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
             });
-
         }
     }
     // gallery

@@ -1,27 +1,59 @@
 package com.example.semina;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.example.semina.Adapter.ReviewAdapter;
+import com.example.semina.Adapter.UsersAdapter;
+import com.example.semina.Model.ListReview;
+import com.example.semina.Model.Review;
+import com.example.semina.Model.User;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Post_reviewActivity extends AppCompatActivity {
-
-    private EditText reviews;
-    private DatabaseReference ReviewDatabase;
-    FirebaseUser CurrentUser;
+    CircleImageView image_avatar;
+    TextView name_avatar;
+    EditText write_review;
+    Button btn_post;
+    //firebase
+    UsersAdapter usersAdapter;
+    ArrayList<User> mUsers = new ArrayList<>();
+    DatabaseReference ReviewsReference;
+    private ArrayList<ListReview> reviewList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,45 +61,61 @@ public class Post_reviewActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Post Review");
+        getSupportActionBar().setTitle("Trải nghiệm thú vị");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //
-        // database
-        CurrentUser = FirebaseAuth.getInstance().getCurrentUser();
-        assert CurrentUser != null;
-        String current_Uid = CurrentUser.getUid();
-        ReviewDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(current_Uid);
+
         // find id
-        reviews = findViewById(R.id.review);
-        Button btn_Save = findViewById(R.id.btn_post);
+        write_review = findViewById(R.id.write_review);
+        btn_post = findViewById(R.id.btn_post);
+        name_avatar = findViewById(R.id.name_avatar);
+        image_avatar = findViewById(R.id.image_avatar);
+        // xử lí code
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference userDatabase = database.getReference("Users");
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        assert firebaseUser != null;
+        final String User_Uid = firebaseUser.getUid();
+        userDatabase.child(User_Uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                assert user != null;
+                name_avatar.setText(user.getUsername());
+                //show image
+                if (user.getImageURL().equals("default")) {
+                    image_avatar.setImageResource(R.drawable.user);
+                } else {
+                    Glide.with(getBaseContext()).load(user.getImageURL()).into(image_avatar);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        //status value
-        String review_value = getIntent().getStringExtra("review_value");
-        reviews.setText(review_value);
+            }
+        });
+        ReviewsReference = FirebaseDatabase.getInstance().getReference().child("Reviews");
 
-        // set onclick button
-        //button save changes
-        btn_Save.setOnClickListener(new View.OnClickListener() {
+        btn_post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String revi = write_review.getText().toString();
+                if (!revi.equals("")) {
+                    HashMap<String, Object> reviewMap = new HashMap<>();
+                    //push  database
+                    reviewMap.put("review_content", revi);
+                    reviewMap.put("image_review", "default");
+                    ReviewsReference.push().setValue(reviewMap);
+                    Intent return_intent= new Intent(Post_reviewActivity.this,ListpostActivity.class);
+                    startActivity(return_intent);
+                    finish();
+                }
 
-                String review = reviews.getText().toString();
-                ReviewDatabase.child("review").setValue(review).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            // Progress.dismiss();
-                            Intent intent  = new Intent(Post_reviewActivity.this, Setting_accountActivity.class);
-                            startActivity(intent);
-
-                        }else{
-                            Toast.makeText(Post_reviewActivity.this, "There was some error in saving changes. ", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
         });
 
+
+    }
     }
 
-}
+
+

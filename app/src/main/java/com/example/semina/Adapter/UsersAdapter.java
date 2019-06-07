@@ -39,7 +39,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     @NonNull
     @Override
     public UsersAdapter.UsersViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        return new UsersAdapter.UsersViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_user_review, viewGroup, false));
+        return new UsersAdapter.UsersViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_user, viewGroup, false));
     }
 
     @Override
@@ -52,8 +52,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
         final User user = users.get(position);
         TextView name = holder.name_avatar;
         name.setText(user.getUsername());
-        TextView review = holder.review;
-        review.setText(user.getReview());
+      //  TextView review = holder.review;
+      //  review.setText(user.getReview());
 
 
         CircleImageView image = holder.image_avatar;
@@ -84,7 +84,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
 
         public TextView name_avatar;
         public CircleImageView image_avatar;
-        public TextView review;
+       // public TextView review;
         public RelativeLayout item;
 
 
@@ -93,7 +93,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             super(itemView);
             name_avatar = itemView.findViewById(R.id.name_avatar);
             image_avatar = itemView.findViewById(R.id.image_avatar);
-            review = itemView.findViewById(R.id.review);
+        //    review = itemView.findViewById(R.id.review);
             item = itemView.findViewById(R.id.item);
         }
     }

@@ -31,8 +31,6 @@ public class RegisterActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public class RegisterActivity extends AppCompatActivity {
         //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Register");
+        getSupportActionBar().setTitle("Đăng Ký Tài Khoảng");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //find id
@@ -88,13 +86,11 @@ public class RegisterActivity extends AppCompatActivity {
                             hashMap.put("id", userid);
                             hashMap.put("username", username);
                             hashMap.put("ImageURL", "default");
-                            hashMap.put("review","Chuyến đi của bạn hôm nay có gì nào? hãy chia sẽ với chúng tôi :)");
-
                             databaseReference.child(userid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Intent a = new Intent(RegisterActivity.this,Setting_accountActivity.class);
+                                        Intent a = new Intent(RegisterActivity.this,ProfileActivity.class);
                                         a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                                         startActivity(a);
                                         finish();

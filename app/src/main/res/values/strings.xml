@@ -22,7 +22,7 @@
     <string name="food">FOOD</string>
     <string name="place">PLACE</string>
     <string name="profile">Profile</string>
-    <string name="festival">LỄ HỘI HÀNG NĂM </string>
+    <string name="festival">Lễ Hội Hàng Năm </string>
     <string name="review_m_i_nh_t">Trải Nghiệm Của Bạn</string>
     <string name="information_account">Information account</string>
     <string name="Register">Register</string>
@@ -44,6 +44,9 @@
     <string name="Trang_chu">Trang chủ</string>
     <string name="forgot_password">Forgot Password</string>
     <string name="reset">Reset</string>
+    <string name="Write_review">Chia sẻ của bạn </string>
+    <string name="xemthem">xem tất cả</string>
+    <string name="driver">Phương Tiện Di Chuyển</string>
 
 
 </resources>
