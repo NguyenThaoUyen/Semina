@@ -42,6 +42,12 @@ public class ListpostActivity extends AppCompatActivity {
     RecyclerView recycler;
     ReviewAdapter reviewAdapter;
     ArrayList<Review>reviews = new ArrayList<>();
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    CircleImageView image_avatar;
+    TextView name_avatar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +58,8 @@ public class ListpostActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Trải Nghiệm Thú Vị ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //recyclerView
+        image_avatar =findViewById(R.id.image_avatar);
+        name_avatar=findViewById(R.id.name_avatar);
         recycler = findViewById(R.id.recycler);
         recycler.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(ListpostActivity.this);
@@ -59,6 +67,28 @@ public class ListpostActivity extends AppCompatActivity {
         recycler.setLayoutManager(layoutManager);
         reviewAdapter =new ReviewAdapter(this,reviews );
         recycler.setAdapter(reviewAdapter);
+        // read data
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Reviews");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String  review_content;
+                reviews.clear();
+                for(DataSnapshot data: dataSnapshot.getChildren()){
+                    review_content = data.child("review_content").getValue().toString();
+                    Review reviews = new Review(review_content);
+                    reviews.add(reviews);
+                    reviewAdapter.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 }
 

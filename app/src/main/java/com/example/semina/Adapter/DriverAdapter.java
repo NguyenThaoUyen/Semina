@@ -7,9 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.semina.List_driverActivity;
 import com.example.semina.Model.Driver;
 import com.example.semina.R;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverViewHolder>{
@@ -21,6 +25,7 @@ public class DriverAdapter extends RecyclerView.Adapter<DriverAdapter.DriverView
         this.driverList = driverList;
         this.context = context;
     }
+
 
 
     @NonNull

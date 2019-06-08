@@ -7,12 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".ListpostActivity"
     android:orientation="vertical"
-    android:background="@drawable/nen">
+   >
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
     <android.support.v7.widget.RecyclerView
+        android:background="@color/background"
         android:id="@+id/recycler"
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"

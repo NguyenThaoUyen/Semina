@@ -20,6 +20,11 @@ public class Review {
 
     }
 
+    public Review(String review_content) {
+        this.review_content=review_content;
+    }
+
+
     public String getNameuser() {
         return nameuser;
     }
@@ -50,5 +55,8 @@ public class Review {
 
     public void setImage_review(String image_review) {
         this.image_review = image_review;
+    }
+
+    public void add(Review reviews) {
     }
 }

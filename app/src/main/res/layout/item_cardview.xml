@@ -6,7 +6,7 @@
     app:cardBackgroundColor="#F7F8FA"
     app:cardElevation="5dp"
     android:padding="5dp"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     app:cardCornerRadius="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_margin="5dp">
+    >
 
         <TextView
             android:id="@+id/title"
@@ -26,9 +26,11 @@
             android:textSize="18sp"
             android:text="@string/name_title"
             android:textStyle="bold"
+            android:padding="5dp"
             />
         <TextView
             android:id="@+id/address"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -41,7 +43,6 @@
             android:layout_height="200dp"
             android:src="@mipmap/ic_launcher"
             android:scaleType="centerCrop"
-            android:layout_marginTop="5dp"
             android:layout_margin="10dp"
             android:contentDescription="@string/todo" />
     </LinearLayout>

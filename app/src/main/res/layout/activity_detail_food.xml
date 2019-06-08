@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/nen">
+     >
 
         <include
             android:id="@+id/toolbar"
@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            android:padding="5dp"/>
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"

@@ -26,10 +26,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.semina.Adapter.DataAdapter;
+import com.example.semina.Adapter.DriverAdapter;
 import com.example.semina.Adapter.ItemClickListener;
 import com.example.semina.Adapter.ReviewAdapter;
 import com.example.semina.Adapter.UsersAdapter;
 import com.example.semina.Model.Data;
+import com.example.semina.Model.Driver;
 import com.example.semina.Model.Review;
 import com.example.semina.Model.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -54,14 +56,17 @@ public class MainActivity extends AppCompatActivity {
     //list post
     private  ArrayList<Review>Reviews= new ArrayList<>();
     ReviewAdapter reviewAdapter;
-
     //
+    private  ArrayList<Driver>Drivers= new ArrayList<>();
+    DriverAdapter driverAdapter;
+
+    //Drivers
     Button btn_hotel, btn_place, btn_food, btn_profile;
     ImageButton btn_map;
     //event
     private ArrayList<Data> Events =new ArrayList<>();
         DataAdapter dataAdapter;
-        RecyclerView rv_event;
+        RecyclerView rv_event,rv_driver;
         //firebase
         FirebaseDatabase firebaseDatabase;
         DatabaseReference databaseReference;
@@ -189,6 +194,37 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //read data
+        // recyclerview
+        rv_driver = findViewById(R.id.rv_driver);
+        rv_driver.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true);
+        rv_driver.setLayoutManager(linearLayoutManager1);
+        driverAdapter = new DriverAdapter(Drivers,this);
+        rv_driver.setAdapter(driverAdapter);
+        // read data
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Driver");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String add, phone, name;
+                Drivers.clear();
+                for(DataSnapshot driver: dataSnapshot.getChildren()){
+                    name = driver.child("name").getValue().toString();
+                    add = driver.child("address").getValue().toString();
+                    phone = driver.child("phone").getValue().toString();
+                    Driver drivers = new Driver(name,phone,add);
+                    Drivers.add(drivers);
+                    dataAdapter.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         image_avatar = findViewById(R.id.image_avatar);
         name_avatar = findViewById(R.id.name_avatar);
         // read data user

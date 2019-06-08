@@ -19,12 +19,13 @@ package com.example.semina;
 
 public class List_driverActivity extends AppCompatActivity {
 
-    private ArrayList<Driver> Drives = new ArrayList<>();
-    DriverAdapter driverAdapter;
+private ArrayList<Driver> Drivers = new ArrayList<>();
+    DriverAdapter dataAdapter;
     RecyclerView rv_driver;
     //database
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,22 +41,23 @@ public class List_driverActivity extends AppCompatActivity {
         rv_driver.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rv_driver.setLayoutManager(linearLayoutManager);
-        rv_driver.setAdapter(driverAdapter);
+        dataAdapter = new DriverAdapter(Drivers,this);
+        rv_driver.setAdapter(dataAdapter);
         // read data
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Driver");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String address, phone, name;
-                Drives.clear();
-                for(DataSnapshot data: dataSnapshot.getChildren()){
-                    name = data.child("name").getValue().toString();
-                    address = data.child("address").getValue().toString();
-                    phone = data.child("phone").getValue().toString();
-                    Driver drivers = new Driver(name,phone,address);
-                    Drives.add(drivers);
-                    driverAdapter.notifyDataSetChanged();
+                String add, phone, name;
+                Drivers.clear();
+                for(DataSnapshot driver: dataSnapshot.getChildren()){
+                    name = driver.child("name").getValue().toString();
+                    add = driver.child("address").getValue().toString();
+                    phone = driver.child("phone").getValue().toString();
+                    Driver drivers = new Driver(name,phone,add);
+                    Drivers.add(drivers);
+                    dataAdapter.notifyDataSetChanged();
                 }
             }
             @Override
@@ -63,5 +65,6 @@ public class List_driverActivity extends AppCompatActivity {
 
             }
         });
+
     }
 }

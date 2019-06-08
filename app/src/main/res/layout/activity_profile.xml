@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
     android:orientation="vertical"
-    android:background="@drawable/nen">
+   >
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
@@ -15,8 +15,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
-
+        android:padding="5dp"
+     >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_avatar"
             android:layout_width="60dp"

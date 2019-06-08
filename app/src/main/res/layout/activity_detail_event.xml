@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Detail_eventActivity"
-    android:background="@drawable/nen">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo"
+            android:padding="5dp"/>
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"

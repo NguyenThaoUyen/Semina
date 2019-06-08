@@ -14,10 +14,11 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
     <android.support.v7.widget.RecyclerView
+        android:background="@color/background"
         android:id="@+id/rv_hotel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/nen">
+>
 
     </android.support.v7.widget.RecyclerView>
 
